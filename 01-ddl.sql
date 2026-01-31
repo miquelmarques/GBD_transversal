@@ -62,20 +62,20 @@ CREATE TABLE avaluacio(
     observacions VARCHAR (100)
 );
 CREATE TABLE criteri(
-    ID serial PRIMARY KEY,
+    ID INT PRIMARY KEY,
     descrip varchar(150) NOT NULL
 );
 
 CREATE TABLE segueix (
-    ID_criteri serial REFERENCES criteri(ID) ON DELETE RESTRICT,
+    ID_criteri INT REFERENCES criteri(ID) ON DELETE RESTRICT,
     codi_avaluacio INT REFERENCES avaluacio(codi_avaluacio) ON DELETE CASCADE,
     nota numeric(2,1) NOT NULL,
     PRIMARY KEY (ID_criteri, codi_avaluacio) --Afegeix les dues claus primaries.
 );
 
 CREATE TABLE enviament(
-    codicv INT REFERENCES cv(codicv) ON DELETE CASCADE,--Comprovar la restrició
-    CIFNIF_empresa CHAR(9) REFERENCES empresa(CIFNIF) ON UPDATE RESTRICT, --Comprovar constraint
+    codicv  INT REFERENCES cv(codicv) ON DELETE CASCADE,--Comprovar restringuir que si s'elimina el alumne es pugui borrar.
+    CIFNIF_empresa CHAR(9) REFERENCES empresa(CIFNIF) ON UPDATE RESTRICT, -- Restringir updates perque hem de guardar tot el historicu del alumne
     data_contacte date,
     data_resposta date,
     data_entrevista date,
