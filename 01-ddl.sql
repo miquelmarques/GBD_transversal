@@ -1,11 +1,14 @@
 DROP DATABASE IF exists practiques_tic;
 CREATE DATABASE practiques_tic;
 \c practiques_tic
-ALTER TABLE segueix DROP CONSTRAINT segueix_ID_criteri_fk;
-ALTER TABLE segueix DROP CONSTRAINT segueix_codi_avaluacio_fk;
-ALTER TABLE assignacio DROP CONSTRAINT assignacio_DNI_alumne_fk;
-ALTER TABLE assignacio DROP CONSTRAINT assignacio_CIFNIF_empresa_fk;
-ALTER TABLE avaluacio DROP CONSTRAINT avaluacio_DNI_alumne_fk;
+ALTER TABLE segueix DROP CONSTRAINT segueix_id_criteri_fkey;
+ALTER TABLE segueix DROP CONSTRAINT segueix_codi_avaluacio_fkey;
+ALTER TABLE assignacio DROP CONSTRAINT assignacio_dni_alumne_fkey;
+ALTER TABLE assignacio DROP CONSTRAINT assignacio_cifnif_empresa_fkey;
+ALTER TABLE avaluacio DROP CONSTRAINT avaluacio_dni_alumne_fkey;
+ALTER TABLE enviament DROP CONSTRAINT enviament_cifnif_empresa_fkey;
+ALTER TABLE enviament DROP CONSTRAINT enviament_codicv_fkey;
+ALTER TABLE cv DROP CONSTRAINT cv_dni_alumne_fkey;
 DROP TABLE IF exists alumne;
 DROP TABLE IF exists cv;
 DROP TABLE IF exists empresa;
@@ -35,7 +38,7 @@ CREATE TABLE alumne (
 );
 
 CREATE TABLE cv (
-    codicv INT PRIMARY KEY,
+    codicv BIGINT PRIMARY KEY,
     DNI_alumne CHAR(9) NOT NULL REFERENCES alumne(dni) ON DELETE CASCADE, -- Establim una constraint que permeti 
     data_creacio date NOT NULL,
     data_actualitzacio date NOT NULL,
@@ -70,18 +73,18 @@ CREATE TABLE criteri(
 CREATE TABLE segueix (
     ID_criteri INT REFERENCES criteri(ID) ON DELETE RESTRICT,
     codi_avaluacio INT REFERENCES avaluacio(codi_avaluacio) ON DELETE CASCADE,
-    nota numeric(2,1) NOT NULL,
+    nota numeric(3,1) NOT NULL CHECK (nota >=0 AND nota <=10),
     PRIMARY KEY (ID_criteri, codi_avaluacio) --Afegeix les dues claus primaries.
 );
 
 CREATE TABLE enviament(
-    codicv  INT REFERENCES cv(codicv) ON DELETE CASCADE,--Comprovar restringuir que si s'elimina el alumne es pugui borrar.
+    codicv  BIGINT REFERENCES cv(codicv) ON DELETE CASCADE,--Comprovar restringuir que si s'elimina el alumne es pugui borrar.
     CIFNIF_empresa CHAR(9) REFERENCES empresa(CIFNIF) ON UPDATE RESTRICT, -- Restringir updates perque hem de guardar tot el historicu del alumne
     data_contacte date,
     data_resposta date,
     data_entrevista date,
     estat VARCHAR(50) NOT NULL,
-    note VARCHAR(500),
+    notes VARCHAR(500),
     PRIMARY KEY (codicv, CIFNIF_empresa, data_contacte)
 );
 
