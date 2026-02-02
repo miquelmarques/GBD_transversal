@@ -1,3 +1,6 @@
+DROP DATABASE IF exists practiques_tic;
+CREATE DATABASE practiques_tic;
+\c practiques_tic
 ALTER TABLE segueix DROP CONSTRAINT segueix_ID_criteri_fk;
 ALTER TABLE segueix DROP CONSTRAINT segueix_codi_avaluacio_fk;
 ALTER TABLE assignacio DROP CONSTRAINT assignacio_DNI_alumne_fk;
@@ -11,9 +14,7 @@ DROP TABLE IF exists criteri;
 DROP TABLE IF exists segueix;
 DROP TABLE IF exists enviament;
 DROP TABLE IF exists assignacio;
-DROP DATABASE IF exists practiques_tic;
-CREATE DATABASE practiques_tic;
-\c practiques_tic
+
 CREATE TABLE alumne (
     DNI CHAR(9) PRIMARY KEY,
     nom_cognoms VARCHAR(100) NOT NULL,
