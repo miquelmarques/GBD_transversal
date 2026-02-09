@@ -72,7 +72,7 @@ CREATE TABLE criteri(
 
 CREATE TABLE segueix (
     ID_criteri INT REFERENCES criteri(ID) ON DELETE RESTRICT,
-    codi_avaluacio INT REFERENCES avaluacio(codi_avaluacio) ON DELETE CASCADE,
+    codi_avaluacio INT REFERENCES avaluacio(codi_avaluacio) ON DELETE CASCADE, --Permet que si s'elimina una avaluacio es puguin eliminar els criteris associats a aquesta avaluacio
     nota numeric(3,1) NOT NULL CHECK (nota >=0 AND nota <=10),
     PRIMARY KEY (ID_criteri, codi_avaluacio) --Afegeix les dues claus primaries.
 );

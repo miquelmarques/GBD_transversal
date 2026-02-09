@@ -67,22 +67,19 @@ FROM alumne al
     JOIN assignacio asg ON al.dni = asg.dni_alumne
     JOIN empresa em ON CIFNIF_empresa = CIFNIF;
 --7a Consulta que detecti inconsistències: alumnes amb assignació però sense cap enviament “acceptat” prèviament (si el vostre flux ho contempla)
-SELECT dni,
-    nom_cognoms
-FROM alumne al
-WHERE al.dni IN (
-        SELECT DISTINCT(dni)
-        FROM alumne al
-            JOIN assignacio asg ON al.dni = asg.dni_alumne
-            JOIN cv ON al.dni = cv.dni_alumne
-        WHERE cv.codicv NOT IN (
-                SELECT codicv
-                FROM enviament
-                WHERE estat = 'Acceptat'
-            )
-    )
-    AND asg.dni_alumne IS NULL;
---Revisar
+SELECT 
+    dni, nom_cognoms 
+FROM 
+    alumne al 
+JOIN 
+    cv ON al.dni = cv.dni_alumne 
+JOIN 
+    enviament en ON cv.codicv = en.codicv 
+WHERE 
+    dni NOT IN (SELECT dni_alumne FROM assignacio) 
+AND 
+    en.estat = 'Acceptat';
+
 -- 8a Alumnes actius amb puntuació global superior a 7, mostrant també la mitjana global.
 SELECT dni,
     nom_cognoms,
@@ -95,8 +92,7 @@ FROM alumne
     JOIN avaluacio ON dni = dni_alumne
 WHERE nota_global > 7;
 --9a Empreses d’un sector concret (per exemple, ‘Tecnologia’ o ‘Educació’) que no han rebut cap enviament
-SELECT nom
-FROM empreses
-    LEFT JOIN enviament ev ON e.CIFNIF = ev.CIFNIF_empresa
-WHERE em.sector = "Tecnologia"
-    AND ev.CIFNIF_empresa IS NULL;
+SELECT nom 
+FROM empresa em
+LEFT JOIN enviament ev ON em.CIFNIF = ev.CIFNIF_empresa
+WHERE (em.sector = 'Tecnologia' OR em.sector = 'Educació' )AND ev.CIFNIF_empresa IS NULL;
