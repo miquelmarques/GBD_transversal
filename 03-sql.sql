@@ -1,34 +1,22 @@
 --1a Llistat d’alumnes amb puntuació global, ordenat descendent (rànquing).
-SELECT
-    dni,
+SELECT dni,
     nom_cognoms,
     nota_global
-FROM
-    alumne al
+FROM alumne al
     JOIN avaluacio av ON al.dni = av.dni_alumne
-ORDER BY
-    nota_global DESC;
-
+ORDER BY nota_global DESC;
 --2a Top 5 alumnes per puntuació que encara no tenen assignació.
-SELECT
-    dni,
+SELECT dni,
     nom_cognoms,
     nota_global
-FROM
-    alumne al
+FROM alumne al
     JOIN avaluacio av ON al.dni = av.dni_alumne
-WHERE
-    dni NOT IN (
-        SELECT
-            dni_alumne
-        FROM
-            assignacio
+WHERE dni NOT IN (
+        SELECT dni_alumne
+        FROM assignacio
     )
-ORDER BY
-    nota_global DESC
-LIMIT
-    5;
-
+ORDER BY nota_global DESC
+LIMIT 5;
 --3a Per cada empresa: nombre de currículums rebuts, i quants estan en estat “entrevista/acceptat”.
 SELECT
     (

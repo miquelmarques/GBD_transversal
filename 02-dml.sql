@@ -58,7 +58,18 @@ INSERT INTO alumne (DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP,
 ('56789012D', 'Pablo Sanchez Garcia','2526_pablo.sanchez@gmal.com', '+34666333555',12345678945678901234567, 017541959546, 'Barcelona', '08004','PROM20252026','CFGMSMX', true, true, false, false,'Desenvolupament Web' );
 INSERT INTO alumne (DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies ) VALUES
 ('36537125S', 'Laura Martinez Gomez','2526_laura.martinez@gmail.com', '+34666555777',12345678956789023456789, 417709712797, 'Barcelona', '08002','PROM20252026','CFGMSMX', true, false, true, true,'Linux, Cisco, BD' );
-
+INSERT INTO alumne(DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies) VALUES
+('65432109E', 'Maria Lopez Garcia', '2526_maria.lopez@gmail.com', '+34666734888',12345678956789012345678, 417709712596, 'Barcelona', '08001','PROM20252026','CFGMSMX', true, false, false, false,'Desenvolupament Web' );
+INSERT INTO alumne(DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies) VALUES
+('12345678F', 'Pedro Garcia Martinez', '2526_pedro.garcia@gmail.com', '+34666734889',12345678956789012345679, 417709712597, 'Barcelona', '08002','PROM20252026','CFGMSMX', true, false, false, false,'Seguretat Informatica' );
+INSERT INTO alumne(DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies) VALUES
+('87654321G', 'Carmen Rodriguez Sanchez', '2526_carmen.rodriguez@gmail.com', '+34666734890',12345678956789012345680, 417709712598, 'Barcelona', '08003','PROM20252026','CFGMSMX', true, false, false, false,'Virtualització' );
+INSERT INTO alumne(DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies) VALUES
+('34567890H', 'Antonio Jimenez Lopez', '2526_antonio.jimenez@gmail.com', '+34666734891',12345678956789012345681 , 417709712599 , 'Barcelona', '08004','PROM20252026','CFGMSMX', true , false , false , false ,'Desenvolupament Web' );
+INSERT INTO alumne(DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies) VALUES
+('98765432I', 'Sofia Martinez Jimenez', '2526_sofia.martinez@gmail.com', '+34666734892',12345678956789012345682, 417709712600, 'Barcelona', '08005','PROM20252026','CFGMSMX', true, false, false, false,'Desenvolupament Web' );
+INSERT INTO alumne(DNI, nom_cognoms, email, telefon, IDALU, NASS, municipi, CP, promocio, cicle_matricula, actiu, ISO, PAX, RA2_IPO, tecnologies) VALUES
+('11111111J', 'David Lopez Rodriguez', '2526_david.lopez@gmail.com', '+34666734893',12345678956789012345683 , 417709712601 , 'Barcelona', '08006','PROM20252026','CFGMSMX', true , false , false , false ,'Seguretat Informatica' );
 /* Insertar dades d'empresa */
 
 INSERT INTO empresa (CIFNIF, nom, email, telf, ubicacio, sector, dual_intensiva, dual_general) VALUES
@@ -81,6 +92,12 @@ INSERT INTO empresa (CIFNIF, nom, email, telf, ubicacio, sector, dual_intensiva,
 ('A13725999', 'WEBDEVELOPERS SL', 'zy7p16lah@lycos.at', '+34938901234','Barcelona', 'Desenvolupament Web', FALSE, TRUE);
 INSERT INTO empresa (CIFNIF, nom, email, telf, ubicacio, sector, dual_intensiva, dual_general) VALUES
 ('C07189343', 'MOBILEAPPS INC', '9w80p34vq@caramail.com', '+34939012345','Barcelona', 'Desenvolupament Aplicacions Mòbils', TRUE, TRUE);
+INSERT INTO empresa (CIFNIF, nom, email, telf, ubicacio, sector, dual_intensiva, dual_general) VALUES
+('B09876543', 'Escola Pia Santa Anna Mataró', 'mataro@mataro.epiaedu.cat', '+34939012346','Mataró', 'Educació', FALSE, TRUE);
+INSERT INTO empresa (CIFNIF, nom, email, telf, ubicacio, sector, dual_intensiva, dual_general) VALUES
+('Z12345678', 'MegaStore DataSystem', 'contact@megastore.com', '+34939012347','Mataró', 'Tecnologia', TRUE, TRUE);
+INSERT INTO empresa (CIFNIF, nom, email, telf, ubicacio, sector, dual_intensiva, dual_general) VALUES
+('Y87654321', 'EcoTech Solutions', 'contact@ecotech.com', '+34939012348','Mataró', 'Tecnologia', TRUE, TRUE);
 
 /*Insertar dades CV */
 
@@ -146,7 +163,10 @@ INSERT INTO cv (codicv , DNI_alumne , data_creacio, data_actualitzacio, enllaç 
 (365371251, '36537125S', '2025-01-26', '2025-06-15', 'http://cvserver.com/cv/20', 'Actiu', 'CV Laura Martinez Gomez amb experiència en Linux, Cisco i bases de dades.');
 INSERT INTO cv (codicv , DNI_alumne , data_creacio, data_actualitzacio, enllaç , estat , resum ) VALUES 
 (365371252, '36537125S', '2025-01-26', '2025-06-15', 'http://cvserver.com/cv/20', 'Actiu', 'CV Laura Martinez Gomez amb experiència en Linux, Cisco i bases de dades.');
-
+INSERT INTO cv (codicv , DNI_alumne , data_creacio, data_actualitzacio, enllaç , estat , resum ) VALUES
+(654321091, '65432109E', '2025-02-20', '2025-06-18', 'http://cvserver.com/cv/21', 'Actiu', 'CV Maria Lopez Garcia amb experiència en desenvolupament web.');
+INSERT INTO cv (codicv , DNI_alumne , data_creacio, data_actualitzacio, enllaç , estat , resum ) VALUES
+(1234567891, '12345678F', '2025-03-10', '2025-06-20', 'http://cvserver.com/cv/22', 'Inactiu', 'CV Pedro Garcia Martinez amb experiència en seguretat informàtica.');
 /*Insertar dades criteri*/
 
 INSERT INTO criteri (ID, descrip) VALUES 
@@ -466,6 +486,14 @@ INSERT INTO enviament (codicv, CIFNIF_empresa, data_contacte, data_resposta, dat
 (365371252, 'A13725999', '2025-04-29', '2025-05-03', '2025-05-08', 'Entrevista', 'Entrevista confirmada.');
 INSERT INTO enviament (codicv, CIFNIF_empresa, data_contacte, data_resposta, data_entrevista, estat, notes) VALUES
 (365371252, 'A13725999', '2025-04-30', '2025-05-04', '2025-04-03', 'Acceptat', null);
+INSERT INTO enviament (codicv, CIFNIF_empresa, data_contacte, data_resposta, data_entrevista, estat, notes) VALUES
+(654321091, 'Q3114142G', '2025-05-01','2025-05-05', null, 'Rebut', 'Primer contacte establert.');
+INSERT INTO enviament (codicv, CIFNIF_empresa, data_contacte, data_resposta, data_entrevista, estat, notes) VALUES
+(654321091, 'Q3114142G', '2025-05-02', '2025-05-06', '2025-05-11', 'Entrevista', 'Entrevista confirmada.');
+INSERT INTO enviament (codicv, CIFNIF_empresa, data_contacte, data_resposta, data_entrevista, estat, notes) VALUES
+(654321091, 'Q3114142G', '2025-05-03', '2025-05-07', '2025-05-12', 'Acceptat', null);
+
+
 
 /* Insertar d'assignacio */
 INSERT INTO assignacio (DNI_alumne, CIFNIF_empresa, data_inici, data_fi, horari, tutor, estat, tipus, especialitzacio) VALUES
@@ -484,3 +512,7 @@ INSERT INTO assignacio (DNI_alumne, CIFNIF_empresa, data_inici, data_fi, horari,
 ('53671343S', 'C07189343', '2025-06-05', '2025-10-05', '9:00-17:00', 'Isabel Ramirez', 'En proces', 'Intensiva', 'Desenvolupament  de aplicacions');
 INSERT INTO assignacio (DNI_alumne, CIFNIF_empresa, data_inici, data_fi, horari, tutor, estat, tipus, especialitzacio) VALUES
 ('36537125S', 'A13725999', '2025-05-25', '2025-09-25', '10:00-18:00', 'Fernando Jimenez', 'Cancelada', 'General', 'Administració de sistemes');
+INSERT INTO assignacio (DNI_alumne, CIFNIF_empresa, data_inici, data_fi, horari, tutor, estat, tipus, especialitzacio) VALUES
+('36537125S', 'B09876543', '2025-09-25', '2026-06-13', '10:00-18:00', 'Fernando Jimenez', 'Cancelada', 'General', 'Administració de sistemes');
+INSERT INTO assignacio (DNI_alumne, CIFNIF_empresa, data_inici, data_fi, horari, tutor, estat, tipus, especialitzacio) VALUES
+('65432109E', 'Q3114142G', '2025-07-01', '2025-10-31', '8:00-16:00', 'Laura Gomez', 'En proces', 'Intensiva', 'Desenvolupament web');
